@@ -10,4 +10,5 @@ run the rake task <br/>
 
 <br/> 
 
-![search demo][Search.gif]
+![Search](https://github.com/ajazfarhad/search_prompt_example/assets/49904093/1e6bce9e-d3eb-4290-96c0-9e565d4af7a8)
+
