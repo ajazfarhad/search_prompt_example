@@ -1,5 +1,5 @@
 # README
-
+A search prompt application that makes use of [Typesense](https://typesense.org/) as a search engine.
 ## Running locally
  ``docker-compose up --build``
 
