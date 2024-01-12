@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :prompt_datum do
-    content { "MyText" }
+    content { "test content" }
   end
 end
