@@ -1,0 +1,4 @@
+development:
+  host: 'typesense'
+  port: '8108'
+  protocol: 'http'

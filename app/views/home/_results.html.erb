@@ -1,0 +1,5 @@
+<%= turbo_frame_tag :results do %>
+  <% @results.each do |result| %>
+    <li class="list-group-item"><%= result['content'].html_safe%></li>
+  <% end %>
+<% end %>

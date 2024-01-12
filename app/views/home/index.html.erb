@@ -1,0 +1,15 @@
+<div class="container justify-content-center mt-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <%= form_tag(search_path, method: :get) do %>
+        <%= text_field_tag :query, params[:query], placeholder: 'Search...', class: 'form-control form-control-lg shadow p-3 mb-5 bg-body rounded', "data-controller": "search" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <ul class="list-group" style='font-family: monospace'>
+    <%= render "results" %>
+  </ul>
+</div>
