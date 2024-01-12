@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  # Rails app
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'"
+    volumes:
+      - ".:/app"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - typesense
+    env_file:
+      - .env
+
+  # Search engine service
+  typesense:
+    image: typesense/typesense:0.25.2
+    ports:
+      - "8108:8108"
+    env_file:
+      - .env
+    volumes:
+      - typesense_data:/data
+    command: ["--data-dir", "/data", "--api-key=${TYPESENSE_API_KEY}", "--enable-cors"]
+
+volumes:
+  pg_data:
+  typesense_data:
