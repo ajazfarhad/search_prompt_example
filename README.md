@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Running locally
+ ``docker-compose up --build``
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
+Bash into the web container to execute a rake task to load and index the sample data.
+``docker exec -it <web_container_id> bash``
+run the rake task
+``rake prompt_data:load``
 * ...
